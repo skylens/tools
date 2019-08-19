@@ -4,7 +4,7 @@
 
 + md5
 
-````
+```
 openssl md5 README
 MD5(README)= f21a8a1e9df9a5e2144df5cb3bb4ea14
 md5sum README
