@@ -1,11 +1,9 @@
 #!/bin/bash
 set -e
 
-STAT=2
-
 _checkrunning(){
-    PID=`ps -ef | grep "dropbear" | grep -v "grep" | head -n1 | awk '{print $2}'`
-    if [ ! - z ${PTD} ]; then
+    PID=`ps -ef | grep -v grep | grep -i "dropbeard" | awk '{print $2}'`
+    if [ ! -z ${PTD} ]; then
 	    STAT=0
     else
 	    STAT=1
@@ -42,7 +40,7 @@ _genkey(){
 _start(){
     port=1213
     _genkey
-    ${PWD}/sbin/dropbear -p ${port}
+    ${PWD}/sbin/dropbeard -p ${port}
     echo "+ Dropbear SSH running!!!"
     exit 0
 }
