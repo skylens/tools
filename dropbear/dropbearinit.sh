@@ -11,6 +11,7 @@ _checkrunning(){
 }
 
 _help(){
+    _checkrunning
     echo "Usage: ${0} {start|remove}"
     if [ $STAT = 0 ]; then 
         echo "Dropbear SSH was running!!!" 
