@@ -1,21 +1,23 @@
 #!/bin/bash
 set -e
 
-STAT = 2
+STAT=2
 
 _checkrunning(){
     PROGRAM = dropbear
     PID=`ps -ef | grep ${PROGRAM} | grep -v "grep" | head -n1 | awk '{print $2}'`
     if [ ! - z ${PTD} ]; then
-	STAT = 0
+	    STAT=0
     else
-	STAT = 1
+	    STAT=1
     fi
 }
 
 _help(){
     echo "Usage: ${0} {start|remove}"
-    if [ $STAT = 0 ]; then echo "Dropbear SSH was running!!!" fi 
+    if [ $STAT = 0 ]; then 
+        echo "Dropbear SSH was running!!!" 
+    fi 
     exit 0
 }
 
@@ -39,7 +41,7 @@ _genkey(){
 }
 
 _start(){
-    port = 1213
+    port=1213
     _genkey
     ${PWD}/sbin/dropbear -p ${port}
     echo "+ Dropbear SSH running!!!"
