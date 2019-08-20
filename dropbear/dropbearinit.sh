@@ -13,7 +13,7 @@ _checkrunning(){
 _help(){
     _checkrunning
     echo "Usage: ${0} {start|remove}"
-    if [ $STAT = 0 ]; then 
+    if [ $STAT = 1 ]; then 
         echo "Dropbear SSH was running!!!" 
     fi 
     exit 0
@@ -21,7 +21,7 @@ _help(){
 
 _killprocess(){
     _checkrunning
-    if [ $STAT = 0 ]; then
+    if [ $STAT = 1 ]; then
         kill -9 ${PID}
         echo "+ kill ${PROGRAM}"
     fi
